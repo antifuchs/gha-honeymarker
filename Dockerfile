@@ -9,6 +9,7 @@ LABEL "repository"="https://github.com/naiduarvind/gha-honeymarker"
 LABEL "homepage"="https://github.com/naiduarvind"
 LABEL "maintainer"="Arvind Naidu <no-reply@thebility.engineer>"
 
+RUN apt-get update && apt-get install -qy jq
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
