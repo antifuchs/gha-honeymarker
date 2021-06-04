@@ -13,6 +13,9 @@ inputs:
   dataset:
     description: Honeycomb dataset to use.
     required: true
+  url:
+    description: URL that the marker points to
+    required: false
   type:
     description: Identifier for marker (e.g. "deploy").
     required: false
@@ -20,8 +23,9 @@ inputs:
   message:
     description: Message describing this specific marker (e.g. "24-success").
     required: false
-    default: ${{ github.run_number }}-${{ job.status }} 
+    default: ${{ github.run_number }}-${{ job.status }}
 
 runs:
     using: 'docker'
     image: 'Dockerfile'
+    entrypoint: /entrypoint.sh
