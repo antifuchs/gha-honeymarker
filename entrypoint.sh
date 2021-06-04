@@ -28,7 +28,7 @@ function create_marker() {
 function update_marker_end() {
     env
 
-    honeymarker -k "$INPUT_APIKEY" -d "$INPUT_DATASET" update -i $INPUT_HONEYCOMB_MARKER_ID -e $(date '+%s')
+    honeymarker -k "$INPUT_APIKEY" -d "$INPUT_DATASET" update -i $HONEYCOMB_MARKER_ID -e $(date '+%s')
 }
 
 install_binary
