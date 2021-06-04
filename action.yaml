@@ -29,3 +29,4 @@ runs:
     using: 'docker'
     image: 'Dockerfile'
     entrypoint: /entrypoint.sh
+    post-entrypoint: /entrypoint.sh
