@@ -15,6 +15,8 @@ function marker_url() {
 }
 
 function create_marker() {
+    env
+
     if marker_id=$(honeymarker -k "$INPUT_APIKEY" -d "$INPUT_DATASET" add -t "$INPUT_TYPE" -m "$INPUT_MESSAGE" -u "$(marker_url)" | jq -r .id); then
         echo "HONEYCOMB_MARKER_ID=${marker_id}" >> $GITHUB_ENV
     else
@@ -25,11 +27,12 @@ function create_marker() {
 
 function update_marker_end() {
     env
+
     honeymarker -k "$INPUT_APIKEY" -d "$INPUT_DATASET" update -i $INPUT_HONEYCOMB_MARKER_ID -e $(date '+%s')
 }
 
 install_binary
-if ! [[ -v STATE_isPost ]] ; then
+if ! [[ -v HONEYCOMB_MARKER_ID ]] ; then
     create_marker
 else
     update_marker_end
