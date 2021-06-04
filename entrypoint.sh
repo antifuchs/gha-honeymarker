@@ -8,7 +8,7 @@ function install_binary() {
 
 function marker_url() {
     if [ -z "$INPUT_URL" ] ; then
-        curl -s "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" | jq -r '.html_url'
+        echo "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
     else
         echo "$INPUT_URL"
     fi
