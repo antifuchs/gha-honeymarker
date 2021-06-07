@@ -10,8 +10,8 @@ inputs:
   apikey:
     description: API key used to communicate with the Honeycomb API.
     required: true
-  dataset:
-    description: Honeycomb dataset to use.
+  datasets:
+    description: Honeycomb datasets to use, separated by spaces.
     required: true
   url:
     description: URL that the marker points to

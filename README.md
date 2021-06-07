@@ -30,7 +30,7 @@ Put the action in the beginning of your worflow:
     type: ${{ github.workflow }}
 
     # Optional: The message describing the marker.
-    message: ${{ github.run-id }}-${{ job.status }} 
+    message: ${{ github.run-id }}-${{ job.status }}
 
 
   # 'honeymarker add' should be placed after a deploy to indicate a change is successful or otherwise.
@@ -40,10 +40,10 @@ Put the action in the beginning of your worflow:
 
 Name         | Required | Description                                                       | Type   | Default
 -------------|----------|-------------------------------------------------------------------|--------|--------
-`apikey`     | yes      | API key used to communicate with the Honeycomb API.               | string | 
-`dataset`    | yes      | Honeycomb dataset to use.                                         | string |
+`apikey`     | yes      | API key used to communicate with the Honeycomb API.               | string |
+`datasets`   | yes      | Honeycomb datasets (separated by spaces) to use.                  | string |
 `type`       | no       | Identifier for the marker (default = "workflow name").            | string | ${{ github.workflow }}
-`message`    | no       | The message describing the marker (default = "job id-job status").| string | ${{ github.run-id}}-${{ job.status }} 
+`message`    | no       | The message describing the marker (default = "job id-job status").| string | ${{ github.run-id}}-${{ job.status }}
 
 ### Outputs
 
