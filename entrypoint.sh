@@ -28,7 +28,7 @@ function create_markers() {
 
 function update_markers_end() {
     jq -nr 'env | .HONEYCOMB_MARKER_IDS | fromjson | fromjson | .[]| @tsv' | while read dataset marker_id ; do
-        honeymarker -k "$INPUT_APIKEY" -d "$dataset" update -i "$marker_id" -e $(date '+%s')
+        honeymarker -k "$INPUT_APIKEY" -d "$dataset" update -i "$marker_id" -e $(date '+%s') -t "$INPUT_TYPE" -m "$INPUT_MESSAGE" -u "$(marker_url)"
     done
 }
 
