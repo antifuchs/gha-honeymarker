@@ -2,10 +2,6 @@
 
 set -euxo pipefail
 
-function install_binary() {
-    go get github.com/honeycombio/honeymarker
-}
-
 function marker_url() {
     if [ -z "$INPUT_URL" ] ; then
         echo "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
@@ -32,7 +28,6 @@ function update_markers_end() {
     done
 }
 
-install_binary
 if ! [[ -v HONEYCOMB_MARKER_IDS ]] ; then
     create_markers
 else
